@@ -39,28 +39,27 @@ contract MappingComputation {
 // The contract that the users will be interacting with.
 contract Storage {
 
-  address current_user;
-  MappingComputation map;
+  // A mapping that maps user addresses to StorageInfo.
+  mapping(address => StorageInfo) storage_map;
 
-  // Constructor function that initializes the map contract.
-  function Storage() public payable {
-    map = new MappingComputation();
-    current_user = msg.sender;
+  // A struct StorageInfo that represents information that can be stored into our array.
+  struct StorageInfo {
+    bytes32 information;
+    string date;
   }
 
-  // A function to store information into our array of information.
-  function store_info(bytes32 information, string date) public payable {
-    map.update(information, date);
+  // Constructor function.
+  function Storage() public {
   }
 
-  // A function to retrieve information from our array of information.
-  function get_info(uint id) public view returns(bytes32 information) {
-    return map.retrieve_information(id);
+  // A function to store information into our map. 
+  function store_info(bytes32 information, string date) public { 
+    storage_map[msg.sender] = StorageInfo(information, date);
   }
 
-  // A function to get the id of where the next set of information will be stored in.
-  function get_id() public view returns(uint id_number) {
-    return map.get_id();
+  // A function to retrieve information from our map. 
+  function get_info() public view returns(bytes32 information) {
+    return storage_map[msg.sender].information;
   }
 
 }
