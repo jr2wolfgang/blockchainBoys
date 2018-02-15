@@ -1,0 +1,19 @@
+{
+  "name": "storage",
+  "version": "1.0.0",
+  "description": "A webpage to store data",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jr2wolfgang/blockchainBoys.git"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "truffle-contract": "^3.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ahan Gupta, Vignesh Shankar",
+  "license": "ISC"
+}
