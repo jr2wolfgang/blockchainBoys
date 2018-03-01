@@ -16,12 +16,13 @@ contract Storage {
   function Storage() public {
   }
 
-  // A function to store information into our map. 
-  function store_info(bytes32 information, string date) public { 
+  // A function to store information into our map.
+  function store_info(bytes32 information, string date) public returns (bool){
     storage_map[msg.sender] = StorageInfo(information, date);
+    return true;
   }
 
-  // A function to retrieve information from our map. 
+  // A function to retrieve information from our map.
   function get_info() public view returns(bytes32 information) {
     return storage_map[msg.sender].information;
   }
