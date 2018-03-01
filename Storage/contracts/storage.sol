@@ -25,5 +25,4 @@ contract Storage {
   function get_info() public view returns(bytes32 information) {
     return storage_map[msg.sender].information;
   }
-
 }
