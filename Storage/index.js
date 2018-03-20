@@ -20,5 +20,3 @@ MyContract.deployed().then(function(instance) {
 }).then(function(result) {
       // Do something with the result or continue with more transactions.
 });
-
-

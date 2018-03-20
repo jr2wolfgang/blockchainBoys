@@ -1,0 +1,690 @@
+{
+  "contractName": "Storage",
+  "abi": [
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "information",
+          "type": "bytes32"
+        },
+        {
+          "name": "date",
+          "type": "string"
+        }
+      ],
+      "name": "store_info",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "get_info",
+      "outputs": [
+        {
+          "name": "information",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b6102918061001e6000396000f30060606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806329b478601461005157806360583488146100bb575b600080fd5b341561005c57600080fd5b6100b960048080356000191690602001909190803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506100ec565b005b34156100c657600080fd5b6100ce610177565b60405180826000191660001916815260200191505060405180910390f35b604080519081016040528083600019168152602001828152506000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000190600019169055602082015181600101908051906020019061016f9291906101c0565b509050505050565b60008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000154905090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061020157805160ff191683800117855561022f565b8280016001018555821561022f579182015b8281111561022e578251825591602001919060010190610213565b5b50905061023c9190610240565b5090565b61026291905b8082111561025e576000816000905550600101610246565b5090565b905600a165627a7a72305820205f641de4bf42225b1568e2d10b16f4fd6fd1b2dc3687d2682a98207a82d27b0029",
+  "deployedBytecode": "0x60606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806329b478601461005157806360583488146100bb575b600080fd5b341561005c57600080fd5b6100b960048080356000191690602001909190803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506100ec565b005b34156100c657600080fd5b6100ce610177565b60405180826000191660001916815260200191505060405180910390f35b604080519081016040528083600019168152602001828152506000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000190600019169055602082015181600101908051906020019061016f9291906101c0565b509050505050565b60008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000154905090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061020157805160ff191683800117855561022f565b8280016001018555821561022f579182015b8281111561022e578251825591602001919060010190610213565b5b50905061023c9190610240565b5090565b61026291905b8082111561025e576000816000905550600101610246565b5090565b905600a165627a7a72305820205f641de4bf42225b1568e2d10b16f4fd6fd1b2dc3687d2682a98207a82d27b0029",
+  "sourceMap": "82:704:1:-;;;394:31;;;;;;;;82:704;;;;;;",
+  "deployedSourceMap": "82:704:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;481:129;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;669:114;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;481:129;575:30;;;;;;;;;587:11;575:30;;;;;;;600:4;575:30;;;549:11;:23;561:10;549:23;;;;;;;;;;;;;;;:56;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;481:129;;:::o;669:114::-;709:19;743:11;:23;755:10;743:23;;;;;;;;;;;;;;;:35;;;736:42;;669:114;:::o;82:704::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.0;\n\n// The contract that the users will be interacting with.\ncontract Storage {\n\n  // A mapping that maps user addresses to StorageInfo.\n  mapping(address => StorageInfo) storage_map;\n\n  // A struct StorageInfo that represents information that can be stored into our array.\n  struct StorageInfo {\n    bytes32 information;\n    string date;\n  }\n\n  // Constructor function.\n  function Storage() public {\n  }\n\n  // A function to store information into our map. \n  function store_info(bytes32 information, string date) public { \n    storage_map[msg.sender] = StorageInfo(information, date);\n  }\n\n  // A function to retrieve information from our map. \n  function get_info() public view returns(bytes32 information) {\n    return storage_map[msg.sender].information;\n  }\n\n}\n",
+  "sourcePath": "/Users/Ahan/Desktop/blockchainBoys/Storage/contracts/storage.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/Ahan/Desktop/blockchainBoys/Storage/contracts/storage.sol",
+      "exportedSymbols": {
+        "Storage": [
+          102
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".0"
+          ]
+        },
+        "id": 58,
+        "name": "PragmaDirective",
+        "src": "0:23:1"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            102
+          ],
+          "name": "Storage",
+          "scope": 103
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "storage_map",
+              "scope": 102,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => struct Storage.StorageInfo storage ref)",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => struct Storage.StorageInfo storage ref)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 59,
+                    "name": "ElementaryTypeName",
+                    "src": "168:7:1"
+                  },
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "StorageInfo",
+                      "referencedDeclaration": 67,
+                      "type": "struct Storage.StorageInfo storage pointer"
+                    },
+                    "id": 60,
+                    "name": "UserDefinedTypeName",
+                    "src": "179:11:1"
+                  }
+                ],
+                "id": 61,
+                "name": "Mapping",
+                "src": "160:31:1"
+              }
+            ],
+            "id": 62,
+            "name": "VariableDeclaration",
+            "src": "160:43:1"
+          },
+          {
+            "attributes": {
+              "canonicalName": "Storage.StorageInfo",
+              "name": "StorageInfo",
+              "scope": 102,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "information",
+                  "scope": 67,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bytes32",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 63,
+                    "name": "ElementaryTypeName",
+                    "src": "322:7:1"
+                  }
+                ],
+                "id": 64,
+                "name": "VariableDeclaration",
+                "src": "322:19:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "date",
+                  "scope": 67,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 65,
+                    "name": "ElementaryTypeName",
+                    "src": "347:6:1"
+                  }
+                ],
+                "id": 66,
+                "name": "VariableDeclaration",
+                "src": "347:11:1"
+              }
+            ],
+            "id": 67,
+            "name": "StructDefinition",
+            "src": "297:66:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": true,
+              "modifiers": [
+                null
+              ],
+              "name": "Storage",
+              "payable": false,
+              "scope": 102,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 68,
+                "name": "ParameterList",
+                "src": "410:2:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 69,
+                "name": "ParameterList",
+                "src": "420:0:1"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 70,
+                "name": "Block",
+                "src": "420:5:1"
+              }
+            ],
+            "id": 71,
+            "name": "FunctionDefinition",
+            "src": "394:31:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "store_info",
+              "payable": false,
+              "scope": 102,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "information",
+                      "scope": 89,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 72,
+                        "name": "ElementaryTypeName",
+                        "src": "501:7:1"
+                      }
+                    ],
+                    "id": 73,
+                    "name": "VariableDeclaration",
+                    "src": "501:19:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "date",
+                      "scope": 89,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 74,
+                        "name": "ElementaryTypeName",
+                        "src": "522:6:1"
+                      }
+                    ],
+                    "id": 75,
+                    "name": "VariableDeclaration",
+                    "src": "522:11:1"
+                  }
+                ],
+                "id": 76,
+                "name": "ParameterList",
+                "src": "500:34:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 77,
+                "name": "ParameterList",
+                "src": "542:0:1"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "struct Storage.StorageInfo storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "type": "struct Storage.StorageInfo storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 62,
+                                  "type": "mapping(address => struct Storage.StorageInfo storage ref)",
+                                  "value": "storage_map"
+                                },
+                                "id": 78,
+                                "name": "Identifier",
+                                "src": "549:11:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "sender",
+                                  "referencedDeclaration": null,
+                                  "type": "address"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 114,
+                                      "type": "msg",
+                                      "value": "msg"
+                                    },
+                                    "id": 79,
+                                    "name": "Identifier",
+                                    "src": "561:3:1"
+                                  }
+                                ],
+                                "id": 80,
+                                "name": "MemberAccess",
+                                "src": "561:10:1"
+                              }
+                            ],
+                            "id": 81,
+                            "name": "IndexAccess",
+                            "src": "549:23:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": true,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "struct Storage.StorageInfo memory",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_bytes32",
+                                      "typeString": "bytes32"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_string_memory_ptr",
+                                      "typeString": "string memory"
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 67,
+                                  "type": "type(struct Storage.StorageInfo storage pointer)",
+                                  "value": "StorageInfo"
+                                },
+                                "id": 82,
+                                "name": "Identifier",
+                                "src": "575:11:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 73,
+                                  "type": "bytes32",
+                                  "value": "information"
+                                },
+                                "id": 83,
+                                "name": "Identifier",
+                                "src": "587:11:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 75,
+                                  "type": "string memory",
+                                  "value": "date"
+                                },
+                                "id": 84,
+                                "name": "Identifier",
+                                "src": "600:4:1"
+                              }
+                            ],
+                            "id": 85,
+                            "name": "FunctionCall",
+                            "src": "575:30:1"
+                          }
+                        ],
+                        "id": 86,
+                        "name": "Assignment",
+                        "src": "549:56:1"
+                      }
+                    ],
+                    "id": 87,
+                    "name": "ExpressionStatement",
+                    "src": "549:56:1"
+                  }
+                ],
+                "id": 88,
+                "name": "Block",
+                "src": "542:68:1"
+              }
+            ],
+            "id": 89,
+            "name": "FunctionDefinition",
+            "src": "481:129:1"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "get_info",
+              "payable": false,
+              "scope": 102,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 90,
+                "name": "ParameterList",
+                "src": "686:2:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "information",
+                      "scope": 101,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 91,
+                        "name": "ElementaryTypeName",
+                        "src": "709:7:1"
+                      }
+                    ],
+                    "id": 92,
+                    "name": "VariableDeclaration",
+                    "src": "709:19:1"
+                  }
+                ],
+                "id": 93,
+                "name": "ParameterList",
+                "src": "708:21:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 93
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "information",
+                          "referencedDeclaration": 64,
+                          "type": "bytes32"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "type": "struct Storage.StorageInfo storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 62,
+                                  "type": "mapping(address => struct Storage.StorageInfo storage ref)",
+                                  "value": "storage_map"
+                                },
+                                "id": 94,
+                                "name": "Identifier",
+                                "src": "743:11:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "sender",
+                                  "referencedDeclaration": null,
+                                  "type": "address"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 114,
+                                      "type": "msg",
+                                      "value": "msg"
+                                    },
+                                    "id": 95,
+                                    "name": "Identifier",
+                                    "src": "755:3:1"
+                                  }
+                                ],
+                                "id": 96,
+                                "name": "MemberAccess",
+                                "src": "755:10:1"
+                              }
+                            ],
+                            "id": 97,
+                            "name": "IndexAccess",
+                            "src": "743:23:1"
+                          }
+                        ],
+                        "id": 98,
+                        "name": "MemberAccess",
+                        "src": "743:35:1"
+                      }
+                    ],
+                    "id": 99,
+                    "name": "Return",
+                    "src": "736:42:1"
+                  }
+                ],
+                "id": 100,
+                "name": "Block",
+                "src": "730:53:1"
+              }
+            ],
+            "id": 101,
+            "name": "FunctionDefinition",
+            "src": "669:114:1"
+          }
+        ],
+        "id": 102,
+        "name": "ContractDefinition",
+        "src": "82:704:1"
+      }
+    ],
+    "id": 103,
+    "name": "SourceUnit",
+    "src": "0:787:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.19+commit.c4cbbb05.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xf12b5dd4ead5f743c6baa640b0216200e89b60da"
+    }
+  },
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2018-02-15T09:26:45.893Z"
+}

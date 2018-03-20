@@ -55,31 +55,27 @@ App = {
     $(document).on('click', '.btn-adopt', App.handleAdopt);
   },
 
-  markAdopted: function(adopters, account) {
-      var adoptionInstance;
+  store_info: function(storage, account) {
+    var adoptionInstance;
 
-      App.contracts.Adoption.deployed().then(function(instance) {
-          adoptionInstance = instance;
-          return adoptionInstance.getAdopters.call();
-      }).then(function(adopters) {
-          for (i = 0; i < adopters.length; i++) {
-              if (adopters[i] !== '0x0000000000000000000000000000000000000000') {
-                  $('.panel-pet').eq(i).find('button').text('Success').attr('disabled', true);
-              }
-          }
-      }).catch(function(err) {
-          console.log(err.message);
-      });
+    App.contracts.Storage.deployed().then(function(instance) {
+      storageInstance = instance;
+      return storageInstance.store_info.call();
+    }).then(function(storage) {
+      for (i = 0; i < storage.length; i++) {
+        if (storage[i] !== '0x0000000000000000000000000000000000000000') { // TODO
+          $('.panel-pet').eq(i).find('button').text('Success').attr('disabled', true); // TODO
+        }
+      }
+    }).catch(function(err) { 
+      console.log(err.message);
+    });
   },
 
-  handleAdopt: function(event) {
+  get_info: function(event) {
     event.preventDefault();
 
     var petId = parseInt($(event.target).data('id'));
-
-    /*
-     * Replace me...
-     */
   }
 
 };
