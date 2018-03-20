@@ -18,6 +18,6 @@ contract TestStorage {
     // Expected owner is this contract
     bytes32 expected = testinfo;
     bytes32 actual = str.get_info();
-    Assert.equal(expected, actual, "Stored value should have been asdf");
+    Assert.equal(expected, actual, "Stored value should have been asdfa");
   }
 }
